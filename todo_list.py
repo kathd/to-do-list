@@ -12,13 +12,14 @@ You can run the script in your Terminal at any time using the command:
 def add_to_list(my_list):
     """Takes user input and adds it as a new item to the end of the list."""
 
-    print "The add_to_list function has not yet been written"
-
+    my_list.append(raw_input("Enter new to-do:"))
+    return my_list
 
 def view_list(my_list):
     """Print each item in the list."""
 
-    print "The view_list function has not yet been written"
+    for item in my_list:
+        print item
 
 
 def display_main_menu(my_list):
@@ -33,8 +34,16 @@ def display_main_menu(my_list):
 
     while True:
         # Collect input and include your if/elif/else statements here.
-        break
-
+        user_input = raw_input(user_options)
+        user_input = user_input.upper()
+        if user_input == "A":
+            add_to_list(my_list)
+        elif user_input == "B":
+            view_list(my_list)
+        elif user_input == "C":
+            break
+        else:
+            print "Wrong input. Please only enter A, B, or C."
 #-------------------------------------------------
 
 my_list = []
