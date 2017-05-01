@@ -12,7 +12,7 @@ You can run the script in your Terminal at any time using the command:
 def add_to_list(my_list):
     """Takes user input and adds it as a new item to the end of the list."""
 
-    my_list.append(raw_input("Enter new to-do:"))
+    my_list.append(raw_input("Enter new to-do: "))
     return my_list
 
 def view_list(my_list):
@@ -20,6 +20,12 @@ def view_list(my_list):
 
     for item in my_list:
         print item
+
+def delete_list(my_list):
+    """Deletes an item in the list."""
+
+    del my_list[0]
+    return my_list
 
 
 def display_main_menu(my_list):
@@ -29,7 +35,8 @@ def display_main_menu(my_list):
     \nWould you like to:
     A. Add a new item
     B. View list
-    C. Quit the program
+    C. Delete an item
+    D. Quit the program
     >>> """
 
     while True:
@@ -41,6 +48,8 @@ def display_main_menu(my_list):
         elif user_input == "B":
             view_list(my_list)
         elif user_input == "C":
+            delete_list(my_list)
+        elif user_input == "D":
             break
         else:
             print "Wrong input. Please only enter A, B, or C."
